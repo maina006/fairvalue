@@ -6,8 +6,8 @@
     <title>Fair Value Calculator</title>
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
-            background: linear-gradient(135deg, #e2e2e2 0%, #ffffff 100%);
+            font-family: 'Roboto', sans-serif; /* Modern font */
+            background: linear-gradient(135deg, #1e1e2f, #2a2a3b); /* Dark gradient background */
             margin: 0;
             padding: 20px;
             display: flex;
@@ -15,131 +15,145 @@
             align-items: center;
             height: 100vh;
         }
+        .outer-container {
+            background: rgba(0, 0, 0, 0.8); /* Dark background for the overall box */
+            border-radius: 12px;
+            padding: 20px; /* Padding around the inner container */
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
         .container {
-            background: white;
+            background: rgba(255, 255, 255, 0.1); /* Semi-transparent white for a sleek look */
+            backdrop-filter: blur(10px); /* Frosted glass effect */
             padding: 40px;
             border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            max-width: 500px;
             width: 100%;
-            transition: transform 0.3s;
-        }
-        .container:hover {
-            transform: scale(1.02);
         }
         h1 {
             text-align: center;
-            color: #333;
-            font-size: 2em;
-            margin-bottom: 20px;
+            color: #00ffcc; /* Neon green color for a futuristic feel */
+            margin-bottom: 30px;
+            font-size: 2.5em; /* Larger font size */
         }
         label {
             display: block;
-            margin: 12px 0 6px;
-            color: #555;
+            margin-bottom: 5px;
+            color: #ffffff; /* White text for contrast */
+            font-weight: bold; 
         }
         input {
             width: calc(100% - 20px);
             padding: 12px;
             margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 1em;
+            border-radius: 5px;
+            border: 2px solid #00ffcc; /* Neon green border */
+            background-color: rgba(255, 255, 255, 0.2); /* Slightly transparent background */
+            color: #ffffff; /* White text */
+            transition: border-color 0.3s ease, background-color 0.3s ease;
+        }
+        input::placeholder {
+            color: #cccccc; /* Light gray placeholder text */
         }
         input:focus {
-            border-color: #007bff;
-            outline: none;
+            border-color: #ff4081; /* Pink focus border */
+            background-color: rgba(255, 255, 255, 0.3); /* Darker transparent background on focus */
+            outline: none; 
         }
         button {
             width: 100%;
             padding: 14px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
+            background-color: #00ffcc; /* Neon green button */
+            color: black; 
+            border-radius: 5px; 
+            border: none; 
+            font-size: 18px; 
+            cursor: pointer; 
+            transition: background-color 0.3s ease, transform 0.2s ease; 
         }
         button:hover {
-            background-color: #0056b3;
-            transform: translateY(-2px);
+            background-color: #00e6b8; /* Slightly darker neon green on hover */
         }
         .result {
-            font-weight: bold;
-            margin-top: 20px;
-            color: #333;
+            font-weight: bold; 
+            margin-top: 20px; 
+            color: #ffffff; /* White text for results */
+            word-wrap: break-word; /* Ensure long text wraps within the container */
         }
         hr {
-            border-top: 1px solid #ddd; 
+           border-top: 1px solid #00ffcc; /* Neon green line for separation */
+           margin-top: 10px; 
+           margin-bottom: 10px; 
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Fair Value Calculator</h1>
-        
-        <label for="goi">Gross Operating Income (₹ crores):</label>
-        <input type="number" id="goi" placeholder="Enter GOI">
+    <div class="outer-container">
+        <div class="container">
+            <h1>Fair Value Calculator</h1>
+            
+            <label for="goi">Gross Operating Income (₹ crores):</label>
+            <input type="number" id="goi" placeholder="Enter GOI">
 
-        <label for="expenses">Operating Expenses (₹ crores):</label>
-        <input type="number" id="expenses" placeholder="Enter Expenses">
+            <label for="expenses">Operating Expenses (₹ crores):</label>
+            <input type="number" id="expenses" placeholder="Enter Expenses">
 
-        <label for="sharePrice">Share Price (₹):</label>
-        <input type="number" id="sharePrice" placeholder="Enter Share Price">
+            <label for="sharePrice">Share Price (₹):</label>
+            <input type="number" id="sharePrice" placeholder="Enter Share Price">
 
-        <label for="shares">Number of Shares (crores):</label>
-        <input type="number" id="shares" placeholder="Enter Number of Shares">
+            <label for="shares">Number of Shares (crores):</label>
+            <input type="number" id="shares" placeholder="Enter Number of Shares">
 
-        <label for="profit">Net Profit (₹ crores):</label>
-        <input type="number" id="profit" placeholder="Enter Net Profit">
+            <label for="profit">Net Profit (₹ crores):</label>
+            <input type="number" id="profit" placeholder="Enter Net Profit">
 
-        <label for="assumedCapRate">Assumed Cap Rate (%):</label>
-        <input type="number" id="assumedCapRate" step="0.01" placeholder="Enter Assumed Cap Rate">
+            <label for="assumedCapRate">Assumed Cap Rate (%):</label>
+            <input type="number" id="assumedCapRate" step="0.01" placeholder="Enter Assumed Cap Rate">
 
-        <label for="calculatedCapRate">Calculated Cap Rate (%):</label>
-        <input type="number" id="calculatedCapRate" step="0.01" placeholder="Enter Calculated Cap Rate">
+            <label for="calculatedCapRate">Calculated Cap Rate (%):</label>
+            <input type="number" id="calculatedCapRate" step="0.01" placeholder="Enter Calculated Cap Rate">
 
-        <button onclick="calculateValues()">Calculate</button>
+            <button onclick="calculateValues()">Calculate</button>
 
-        <div class="result" id="result"></div>
+            <div class="result" id="result"></div>
+        </div>
     </div>
 
     <script>
         function calculateValues() {
-            var goi = parseFloat(document.getElementById('goi').value);
-            var expenses = parseFloat(document.getElementById('expenses').value);
-            var sharePrice = parseFloat(document.getElementById('sharePrice').value);
-            var shares = parseFloat(document.getElementById('shares').value);
-            var profit = parseFloat(document.getElementById('profit').value);
-            var assumedCapRate = parseFloat(document.getElementById('assumedCapRate').value) / 100;
-            var calculatedCapRate = parseFloat(document.getElementById('calculatedCapRate').value) / 100;
+           var goi = parseFloat(document.getElementById('goi').value);
+           var expenses = parseFloat(document.getElementById('expenses').value);
+           var sharePrice = parseFloat(document.getElementById('sharePrice').value);
+           var shares = parseFloat(document.getElementById('shares').value);
+           var profit = parseFloat(document.getElementById('profit').value);
+           var assumedCapRate = parseFloat(document.getElementById('assumedCapRate').value) / 100;
+           var calculatedCapRate = parseFloat(document.getElementById('calculatedCapRate').value) / 100;
 
-            var noi = goi - expenses;
-            var marketCap = sharePrice * shares;
+           var noi = goi - expenses || "N/A";
+           var marketCap = sharePrice * shares || "N/A";
 
-            var companyValueAssumed = profit / assumedCapRate || "N/A";
-            var fairValuePerShareAssumed = companyValueAssumed / shares || "N/A";
+           var companyValueAssumed = assumedCapRate ? profit / assumedCapRate : "N/A";
+           var fairValuePerShareAssumed = companyValueAssumed / shares || "N/A";
 
-            var companyValueCalculated = profit / calculatedCapRate || "N/A";
-            var fairValuePerShareCalculated = companyValueCalculated / shares || "N/A";
+           var companyValueCalculated = calculatedCapRate ? profit / calculatedCapRate : "N/A";
+           var fairValuePerShareCalculated = companyValueCalculated / shares || "N/A";
 
-            var capRateCalc = (noi / marketCap) * 100 || "N/A";
+           var capRateCalc = marketCap ? (noi / marketCap) * 100 : "N/A";
 
-            document.getElementById('result').innerHTML = `
-                Net Operating Income (NOI): ₹${noi.toFixed(2)} crores<br>
-                Market Cap: ₹${marketCap.toFixed(2)} crores<br>
-                Calculated Cap Rate: ${capRateCalc.toFixed(2)}%<br>
-                <hr>
-                <b>Using Assumed Cap Rate:</b><br>
-                Company Value: ₹${companyValueAssumed.toFixed(2)} crores<br>
-                Fair Value per Share: ₹${fairValuePerShareAssumed.toFixed(2)}<br>
-                <hr>
-                <b>Using Calculated Cap Rate:</b><br>
-                Company Value: ₹${companyValueCalculated.toFixed(2)} crores<br>
-                Fair Value per Share: ₹${fairValuePerShareCalculated.toFixed(2)}
-                `;
-        }
+           document.getElementById('result').innerHTML = `
+               Net Operating Income (NOI): ₹${noi.toFixed(2)} crores<br>
+               Market Cap: ₹${marketCap.toFixed(2)} crores<br>
+               Calculated Cap Rate: ${capRateCalc.toFixed(2)}%<br>
+               <hr>
+               <b>Using Assumed Cap Rate:</b><br>
+               Company Value: ₹${companyValueAssumed.toFixed(2)} crores<br>
+               Fair Value per Share: ₹${fairValuePerShareAssumed.toFixed(2)}<br>
+               <hr>
+               <b>Using Calculated Cap Rate:</b><br>
+               Company Value: ₹${companyValueCalculated.toFixed(2)} crores<br>
+               Fair Value per Share: ₹${fairValuePerShareCalculated.toFixed(2)}
+           `;
+       }
     </script>
 </body>
 </html>
